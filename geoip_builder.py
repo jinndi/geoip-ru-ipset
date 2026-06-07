@@ -3,12 +3,15 @@ import requests
 from ipaddress import ip_network, ip_address, summarize_address_range
 from tqdm import tqdm
 
-RU_URL = "https://raw.githubusercontent.com/v2fly/geoip/refs/heads/release/text/ru.txt"
+RU_URL = "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/ru.txt"
 
 BLOCKED_URLS = [
+    # antifilter.download
     "https://antifilter.download/list/ip.lst",
     "https://antifilter.download/list/ipresolve.lst",
-    "https://antifilter.download/list/allyouneed.lst"
+    "https://antifilter.download/list/allyouneed.lst",
+    # community.antifilter.download
+    "https://community.antifilter.download/list/community.lst",
 ]
 
 def parse(line):

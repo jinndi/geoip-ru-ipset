@@ -9,9 +9,9 @@
 - незаблокированные IP-адреса;
 - заблокированные IP-адреса.
 
-В качестве источника используется база российских сетей RU GeoIP из v2fly и списки заблокированных IP из Antifilter. Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
+В качестве источника используется база российских сетей RU GeoIP из Loyalsoldier и списки заблокированных IP из Antifilter. Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
 
-Списки могут использоваться в ipset, nftables, маршрутизации, DPI-обходе, прокси-серверах и других сетевых сценариях.
+Списки могут использоваться в ipset, маршрутизации и других сетевых сценариях.
 
 **Обновление** выполняется автоматически каждый день в 00:00 МСК.
 
@@ -20,13 +20,14 @@
 
 ### RU GeoIP (все известные российские IP-адреса)
 
-- https://raw.githubusercontent.com/v2fly/geoip/refs/heads/release/text/ru.txt
+- https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/ru.txt
 
 ### Block Lists (известные заблокированные IP-адреса из базы Antifilter)
 
 - https://antifilter.download/list/ip.lst
 - https://antifilter.download/list/ipresolve.lst
 - https://antifilter.download/list/allyouneed.lst
+- https://community.antifilter.download/list/community.lst
 
 
 ## 📁 Выходные файлы
