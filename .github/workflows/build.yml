@@ -16,11 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set Timezone
-        uses: szenius/set-timezone@v2.0
-        with:
-          timezoneLinux: "Europe/Moscow"
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -36,6 +31,8 @@ jobs:
           python geoip_builder.py
 
       - name: Commit
+        env:
+          TZ: "Europe/Moscow"
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes to the output on this push; exiting."
