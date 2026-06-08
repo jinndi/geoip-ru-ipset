@@ -3,7 +3,7 @@ import requests
 from ipaddress import ip_network, ip_address, summarize_address_range
 from tqdm import tqdm
 
-RU_URL = "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/ru.txt"
+RU_URL = "https://ipbl.herrbischoff.com/geoip/ru.netset"
 
 BLOCKED_URLS = [
   # antifilter.download
