@@ -14,6 +14,9 @@ BLOCKED_URLS = [
   # community.antifilter.download
   "https://community.antifilter.download/list/community.lst",
 
+  # Re-filter
+  "https://raw.githubusercontent.com/1andrevich/Re-filter-lists/main/ipsum.lst",
+
   # antifilter.network
   "https://antifilter.network/download/ip.lst",
   "https://antifilter.network/download/ipsmart.lst",
