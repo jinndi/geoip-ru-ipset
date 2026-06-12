@@ -42,7 +42,7 @@
 
 - https://raw.githubusercontent.com/Loyalsoldier/geoip/release/text/ru.txt
 
-### Block Lists (известные заблокированные IP-адреса из баз Antifilter)
+### Block Lists (известные заблокированные IP-адреса)
 
   **antifilter.download**
 
