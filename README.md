@@ -9,7 +9,7 @@
 - незаблокированные IP-адреса;
 - заблокированные IP-адреса.
 
-В качестве источника используется база российских сетей RU GeoIP из herrbischoff и списки заблокированных IP из Antifilter (download + network) и Re-filter (1andrevich). Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
+В качестве источника используется база российских сетей RU GeoIP из herrbischoff и списки заблокированных IP из Antifilter (download + network), Re-filter (1andrevich) и OpenCCK (все группы). Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
 
 Списки могут использоваться в ipset, маршрутизации и других сетевых сценариях.
 
@@ -65,7 +65,11 @@
   - https://antifilter.network/download/ipsum.lst
   - https://antifilter.network/download/subnet.lst
 
-Список https://antifilter.network/download/ip6.lst исключен из обработки для IPv6. Он содержит чуть более 100 единичных записей с маской `/128`, что увеличивает размер финальной таблицы почти вдвое при минимальной практической пользе. Поскольку другие агрегированные базы блокировок IPv6 на данный момент отсутствуют, файл `ru-blocked6.txt` будет оставаться пустым. Это не критично, так как поддержка и реальное использование IPv6 у российских провайдеров всё еще находятся на крайне низком уровне.
+  **OpenCCK**
+
+  - https://iplist.opencck.org/?format=text&data=cidr4&group=ai&group=anime&group=art&group=casino&group=discord&group=education&group=finance&group=games&group=hosting&group=jetbrains&group=messengers&group=music&group=news&group=porn&group=shop&group=socials&group=tools&group=torrent&group=video&group=youtube
+
+  - https://iplist.opencck.org/?format=text&data=cidr6&group=ai&group=anime&group=art&group=casino&group=discord&group=education&group=finance&group=games&group=hosting&group=jetbrains&group=messengers&group=music&group=news&group=porn&group=shop&group=socials&group=tools&group=torrent&group=video&group=youtube
 
 ## 📁 Выходные файлы
 

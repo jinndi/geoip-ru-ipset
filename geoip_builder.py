@@ -21,8 +21,12 @@ BLOCKED_URLS = [
   "https://antifilter.network/download/ip.lst",
   "https://antifilter.network/download/ipsmart.lst",
   "https://antifilter.network/download/ipsum.lst",
-  "https://antifilter.network/download/subnet.lst"
-  # "https://antifilter.network/download/ip6.lst"
+  "https://antifilter.network/download/subnet.lst",
+  # "https://antifilter.network/download/ip6.lst",
+
+  # OpenCCK (включая все группы)
+  "https://iplist.opencck.org/?format=text&data=cidr4&group=ai&group=anime&group=art&group=casino&group=discord&group=education&group=finance&group=games&group=hosting&group=jetbrains&group=messengers&group=music&group=news&group=porn&group=shop&group=socials&group=tools&group=torrent&group=video&group=youtube",
+  "https://iplist.opencck.org/?format=text&data=cidr6&group=ai&group=anime&group=art&group=casino&group=discord&group=education&group=finance&group=games&group=hosting&group=jetbrains&group=messengers&group=music&group=news&group=porn&group=shop&group=socials&group=tools&group=torrent&group=video&group=youtube"
 ]
 
 def parse(line):
