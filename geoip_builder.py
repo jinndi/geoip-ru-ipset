@@ -211,7 +211,7 @@ def compile_srs(txt_files, output_srs_path):
   
   # Вызываем sing-box для компиляции в .srs
   try:
-    subprocess.run(["sing-box", "rule-set compile", temp_json, "-o", output_srs_path], check=True)
+    subprocess.run([ "sing-box", "rule-set", "compile", temp_json, "-o", output_srs_path ], check=True)
     print(f"Успешно скомпилировано: {output_srs_path}")
   except FileNotFoundError:
     print("Ошибка: Утилита sing-box не найдена в системе/PATH. JSON сохранен.")
