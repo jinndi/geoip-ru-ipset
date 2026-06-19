@@ -1,4 +1,6 @@
 import os
+import json
+import subprocess
 import requests
 from ipaddress import ip_network, ip_address, summarize_address_range
 from tqdm import tqdm
@@ -179,3 +181,42 @@ print("IPv4 no blocked:", len(clean4))
 print("IPv4 blocked:", len(rem4))
 print("IPv6 no blocked:", len(clean6))
 print("IPv6 blocked:", len(rem6))
+
+def compile_srs(txt_files, output_srs_path):
+  ip_list = []
+  
+  # Читаем IP из всех переданных txt файлов (и v4, и v6)
+  for txt_file in txt_files:
+    with open(txt_file, 'r', encoding='utf-8') as f:
+      for line in f:
+        line = line.strip()
+        # Пропускаем пустые строки и комментарии
+        if line and not line.startswith('#'):
+          ip_list.append(line)
+  
+  # Формируем структуру для sing-box
+  rule_set_data = {
+    "version": 3,
+    "rules": [
+      {
+        "ip_cidr": ip_list
+      }
+    ]
+  }
+  
+  # Записываем временный JSON
+  temp_json = output_srs_path + ".json"
+  with open(temp_json, 'w', encoding='utf-8') as f:
+    json.dump(rule_set_data, f, indent=2)
+  
+  # Вызываем sing-box для компиляции в .srs
+  try:
+    subprocess.run(["sing-box", "rule-set compile", temp_json, "-o", output_srs_path], check=True)
+    print(f"Успешно скомпилировано: {output_srs_path}")
+  except FileNotFoundError:
+    print("Ошибка: Утилита sing-box не найдена в системе/PATH. JSON сохранен.")
+  except subprocess.CalledProcessError as e:
+    print(f"Ошибка компиляции: {e}")
+
+compile_srs(['data/ru-blocked.txt', 'data/ru-blocked6.txt'], 'ru-blocked.srs')
+compile_srs(['data/ru-no-blocked.txt', 'data/ru-no-blocked6.txt'], 'ru-no-blocked.srs')

@@ -1,5 +1,5 @@
-# geoip-ru-ipset
-Списки незаблокированных и заблокированных российских IP-адресов для ipset
+# geoip-ru
+Списки незаблокированных и заблокированных российских IP-адресов
 
 
 ## 📖 О проекте
@@ -9,11 +9,11 @@
 - незаблокированные IP-адреса;
 - заблокированные IP-адреса.
 
-В качестве источника используется база российских сетей RU GeoIP из herrbischoff и списки заблокированных IP из Antifilter (download + network), Re-filter (1andrevich) и OpenCCK (все группы). Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
+В качестве источника используется база российских сетей RU GeoIP из Loyalsoldier и списки заблокированных IP из Antifilter (download + network), Re-filter (1andrevich) и OpenCCK (все группы). Во время сборки выполняется исключение заблокированных диапазонов из общего списка российских адресов, после чего формируются отдельные списки для IPv4 и IPv6.
 
 Списки могут использоваться в ipset, маршрутизации и других сетевых сценариях.
 
-**Обновление** выполняется автоматически каждый день в ~ 05:00 МСК.
+**Обновление** выполняется автоматически каждый день
 
 
 ## 📦 Источники данных
@@ -71,13 +71,38 @@ data/
  ├── ru-no-blocked6.txt // IPv6 не заблокированные (clean)
  ├── ru-blocked.txt     // IPv4 заблокированные (blocked)
  ├── ru-blocked6.txt    // IPv6 заблокированные (blocked)
+ru-no-blocked.srs // IPv4+IPv6 не заблокированные для sing-box
+ru-blocked.srs // IPv4+IPv6 заблокированные для sing-box
 ```
 
 ## 📥 Готовые списки
 
-Актуальные сгенерированные файлы:
+### Актуальные сгенерированные файлы для ipset и прочего испльзования (txt):
 
 - 🟢 IPv4 (clean): https://raw.githubusercontent.com/jinndi/geoip-ru-ipset/main/data/ru-no-blocked.txt
 - 🟢 IPv6 (clean): https://raw.githubusercontent.com/jinndi/geoip-ru-ipset/main/data/ru-no-blocked6.txt 
 - 🔴 IPv4 (blocked): https://raw.githubusercontent.com/jinndi/geoip-ru-ipset/main/data/ru-blocked.txt
 - 🔴 IPv6 (blocked): https://raw.githubusercontent.com/jinndi/geoip-ru-ipset/main/data/ru-blocked6.txt
+
+
+### Актуальные сгенерированные файлы для sing-box (srs):
+
+**ru-no-blocked.srs**
+
+```
+https://cdn.jsdelivr.net/gh/jinndi/geoip-ru@main/ru-no-blocked.srs
+```
+
+```
+https://github.com/jinndi/geoip-ru/raw/main/ru-no-blocked.srs
+```
+
+**ru-blocked.srs**
+
+```
+https://cdn.jsdelivr.net/gh/jinndi/geoip-ru@main/ru-blocked.srs
+```
+
+```
+https://github.com/jinndi/geoip-ru/raw/main/ru-blocked.srs
+```
