@@ -53,3 +53,6 @@ jobs:
           git add .
           git commit -m "[auto] $(date '+%Y-%m-%d %H:%M:%S')"
           git push
+
+          curl -sfL "https://purge.jsdelivr.net/gh/jinndi/geoip-ru@main/ru-no-blocked.srs"
+          curl -sfL "https://purge.jsdelivr.net/gh/jinndi/geoip-ru@main/ru-blocked.srs"       
